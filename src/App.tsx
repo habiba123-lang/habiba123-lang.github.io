@@ -26,11 +26,14 @@ import {
   Link as LinkIcon
 } from 'lucide-react';
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
-import authorImg from "figma:asset/e49c2be4b4e14ec6f531dcbc4c0597d433a4e3a0.png";
-import malihaImg from "figma:asset/6937127384982e68024e8b72f1ec8ffe7ba56941.png";
-import hishmaImg from "figma:asset/f8359c7fd185f247f9a1af9d743f0d1c14169999.png";
-import zaheerImg from "figma:asset/17ae9aa8e6912325495d9e638f070842dfb18d40.png";
-import logoImg from "figma:asset/790fda8b73180702a5d6c6df849968a58b4e30c0.png";
+
+const images = {
+  zaheer: "https://drive.google.com/thumbnail?id=1KXr54QMXc6GTM_gqmXvgcdjvgKLnDKRx&sz=w2000",
+  maliha: "https://drive.google.com/thumbnail?id=1lF3vDoSUNxmOkiVjOQ_aBlbf6Xyw5ufj&sz=w2000",
+  creator: "https://drive.google.com/thumbnail?id=1C3-vxJPRe0hTcMHdbB2bwTEEdbUxm80p&sz=w2000",
+  hishma: "https://drive.google.com/thumbnail?id=10VQ9GOyA97yZGS7meitfm4m4GwUovLpu&sz=w2000",
+  logo: "https://drive.google.com/thumbnail?id=1eVLr-cmpf0igXDcGyHLWcp5jeHYSIoYM&sz=w2000",
+};
 
 // --- Types ---
 interface Post {
@@ -1353,28 +1356,28 @@ const AuthorCard = ({ name }: { name?: string }) => {
   const authorData = isMaliha ? {
     name: "Syeda Maliha Marium",
     role: "Network Security Researcher",
-    image: malihaImg,
+    image: images.maliha,
     location: "Tianjin",
     title: "Journalist & Researcher",
     bio: "I am Syeda Maliha Marium, a graduate student at Tianjin University, specializing in network security. As an individual, I embrace optimism and strive to maintain confidence in the face of challenges. Beyond my academic pursuits, I find joy in writing, observing life and people, and holding a steadfast belief in miracles. Additionally, my passions extend to the realms of traveling and cooking."
   } : isHishma ? {
     name: "Bourhani Hishma Vola-Justine",
     role: "Medical Student",
-    image: hishmaImg,
+    image: images.hishma,
     location: "Haikou",
     title: "Medical Scholar",
     bio: "Ms. Bourhani Hishma Vola-Justine, a medical student in Haikou, China, is full of curiosity and does not shy away from learning new skills. Her personal experiences, combined with her years of study in medicine, have allowed her to develop more empathy and have deepened her desire to help people and find balance in life."
   } : isZaheer ? {
     name: "Zaheer Anwar",
     role: "HCI Researcher",
-    image: zaheerImg,
+    image: images.zaheer,
     location: "Tianjin",
     title: "Researcher",
     bio: "Mr. Zaheer Anwar, a researcher in the field of human-computer interaction (HCI), brings over 4 years of experience to his work. His passion for designing technology that seamlessly integrates with human needs. This blend of academic expertise and real-world experience positions his perfectly to lead this exciting new project exploring the potential of virtual reality for language learning."
   } : {
     name: "Mroivili Faouzia",
     role: "The Creator",
-    image: authorImg,
+    image: images.creator,
     location: "Tianjin",
     title: "Digital Artisan",
     bio: "Hi there, I’m Mroivili Faouzia, the creator of Tech & Wisdom. I’m passionate about technology and endlessly curious about life. I also have a special interest in Chinese culture. On this blog, I share honest insights on topics ranging from coding to personal growth."
@@ -1515,7 +1518,7 @@ const Navbar = () => {
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-4 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-amber-500 transition-all duration-500 group-hover:scale-110 group-hover:border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.2)] overflow-hidden">
-              <img src={logoImg} alt="Digital Artisan Logo" className="w-6 h-6 object-contain brightness-110" />
+              <ImageWithFallback src={images.logo} alt="Digital Artisan Logo" className="w-6 h-6 object-contain brightness-110" />
             </div>
             <div className="flex flex-col">
               <span className="font-serif text-xl tracking-tight text-white leading-none font-bold">M.Faouzia.</span>
@@ -2769,7 +2772,7 @@ const Footer = () => {
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-4">
             <div className="w-8 h-8 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-amber-500 overflow-hidden">
-              <img src={logoImg} alt="Logo" className="w-5 h-5 object-contain brightness-110" />
+              <ImageWithFallback src={images.logo} alt="Logo" className="w-5 h-5 object-contain brightness-110" />
             </div>
             <span className="text-lg font-serif tracking-tight text-white font-bold">M. Faouzia</span>
           </div>
