@@ -77,6 +77,7 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --color-amber-400: oklch(.828 .189 84.429);
     --color-amber-500: oklch(.769 .188 70.08);
+    --color-amber-600: oklch(.666 .179 58.318);
     --color-amber-900: oklch(.414 .112 45.904);
     --color-green-500: oklch(.723 .219 149.579);
     --color-gray-100: oklch(.967 .003 264.542);
@@ -539,8 +540,12 @@
     top: calc(var(--spacing) * 32);
   }
 
-  .top-\[-10\%\] {
-    top: -10%;
+  .top-\[-15\%\] {
+    top: -15%;
+  }
+
+  .top-\[30\%\] {
+    top: 30%;
   }
 
   .top-full {
@@ -575,6 +580,10 @@
     right: -10%;
   }
 
+  .right-\[10\%\] {
+    right: 10%;
+  }
+
   .-bottom-1 {
     bottom: calc(var(--spacing) * -1);
   }
@@ -599,8 +608,8 @@
     bottom: calc(var(--spacing) * 12);
   }
 
-  .bottom-\[-10\%\] {
-    bottom: -10%;
+  .bottom-\[-15\%\] {
+    bottom: -15%;
   }
 
   .-left-10 {
@@ -631,8 +640,8 @@
     left: calc(var(--spacing) * 6);
   }
 
-  .left-\[-10\%\] {
-    left: -10%;
+  .left-\[-5\%\] {
+    left: -5%;
   }
 
   .-z-10 {
@@ -910,6 +919,14 @@
     height: calc(var(--spacing) * 80);
   }
 
+  .h-\[50\%\] {
+    height: 50%;
+  }
+
+  .h-\[70\%\] {
+    height: 70%;
+  }
+
   .h-\[80\%\] {
     height: 80%;
   }
@@ -1012,6 +1029,14 @@
 
   .w-80 {
     width: calc(var(--spacing) * 80);
+  }
+
+  .w-\[50\%\] {
+    width: 50%;
+  }
+
+  .w-\[70\%\] {
+    width: 70%;
   }
 
   .w-\[80\%\] {
@@ -1456,6 +1481,16 @@
     }
   }
 
+  .bg-amber-600\/5 {
+    background-color: color-mix(in srgb, oklch(.666 .179 58.318) 5%, transparent);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-amber-600\/5 {
+      background-color: color-mix(in oklab, var(--color-amber-600) 5%, transparent);
+    }
+  }
+
   .bg-amber-900\/10 {
     background-color: color-mix(in srgb, oklch(.414 .112 45.904) 10%, transparent);
   }
@@ -1634,8 +1669,16 @@
     background-image: radial-gradient(circle at 50% 40%, #78350f0d 0%, #0000 60%);
   }
 
+  .bg-\[radial-gradient\(circle_at_50\%_50\%\,rgba\(28\,25\,23\,0\.1\)_0\%\,transparent_100\%\)\] {
+    background-image: radial-gradient(circle, #1c19171a 0%, #0000 100%);
+  }
+
   .bg-\[radial-gradient\(circle_at_center\,rgba\(245\,158\,11\,0\.03\)_0\%\,transparent_70\%\)\] {
     background-image: radial-gradient(circle, #f59e0b08 0%, #0000 70%);
+  }
+
+  .bg-\[url\(\'https\:\/\/grainy-gradients\.vercel\.app\/noise\.svg\'\)\] {
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
   }
 
   .bg-\[url\(\'https\:\/\/www\.transparenttextures\.com\/patterns\/carbon-fibre\.png\'\)\] {
@@ -2278,6 +2321,10 @@
     opacity: .8;
   }
 
+  .opacity-\[0\.02\] {
+    opacity: .02;
+  }
+
   .opacity-\[0\.03\] {
     opacity: .03;
   }
@@ -2296,6 +2343,10 @@
 
   .mix-blend-screen {
     mix-blend-mode: screen;
+  }
+
+  .mix-blend-soft-light {
+    mix-blend-mode: soft-light;
   }
 
   .shadow-2xl {
@@ -2368,8 +2419,18 @@
     filter: var(--tw-blur, ) var(--tw-brightness, ) var(--tw-contrast, ) var(--tw-grayscale, ) var(--tw-hue-rotate, ) var(--tw-invert, ) var(--tw-saturate, ) var(--tw-sepia, ) var(--tw-drop-shadow, );
   }
 
+  .blur-\[180px\] {
+    --tw-blur: blur(180px);
+    filter: var(--tw-blur, ) var(--tw-brightness, ) var(--tw-contrast, ) var(--tw-grayscale, ) var(--tw-hue-rotate, ) var(--tw-invert, ) var(--tw-saturate, ) var(--tw-sepia, ) var(--tw-drop-shadow, );
+  }
+
   .blur-\[200px\] {
     --tw-blur: blur(200px);
+    filter: var(--tw-blur, ) var(--tw-brightness, ) var(--tw-contrast, ) var(--tw-grayscale, ) var(--tw-hue-rotate, ) var(--tw-invert, ) var(--tw-saturate, ) var(--tw-sepia, ) var(--tw-drop-shadow, );
+  }
+
+  .blur-\[250px\] {
+    --tw-blur: blur(250px);
     filter: var(--tw-blur, ) var(--tw-brightness, ) var(--tw-contrast, ) var(--tw-grayscale, ) var(--tw-hue-rotate, ) var(--tw-invert, ) var(--tw-saturate, ) var(--tw-sepia, ) var(--tw-drop-shadow, );
   }
 
@@ -2666,6 +2727,12 @@
   @media (hover: hover) {
     .group-hover\:text-stone-400:is(:where(.group):hover *) {
       color: var(--color-stone-400);
+    }
+  }
+
+  @media (hover: hover) {
+    .group-hover\:text-stone-500:is(:where(.group):hover *) {
+      color: var(--color-stone-500);
     }
   }
 
